@@ -1,12 +1,16 @@
 import React, { Component } from "react";
-import Typography from '@material-ui/core/Typography';
+import Typography from "@material-ui/core/Typography";
+import { Link } from "react-router-dom";
 
 export class Home extends Component {
   render() {
     return (
       <div>
         <header style={headerStyle}>
-          <Typography variant='h2'> Donut Station - Home</Typography>
+          <Typography variant="h2"> Donut Station - Home</Typography>
+          <Link style={linkStyle} to="/menu">
+            <Typography>Novo pedido</Typography>
+          </Link>
         </header>
       </div>
     );
@@ -21,3 +25,7 @@ const headerStyle = {
   backgroundColor: "pink",
   color: "blue"
 };
+
+const linkStyle = { 
+  padding: '10px'
+}
