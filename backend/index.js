@@ -1,13 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 
 // app.use(fileUpload());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-// app.use(cors());
+app.use(cors());
 
 
 mongoose
@@ -34,6 +35,15 @@ app.post('/donut', (req, res) => {
     newDonut.save().then(() => res.send('Donut salvo com sucesso!!'))
 });
 
+
+app.get('/donut', async (req, res) => { 
+    const donuts = await Donut.find({});
+
+    res.send(donuts);
+})
+
+
+
 ///////////// ENDPOINTS BAGELS
 
 const Bagel = require('./models/Bagel');
@@ -51,7 +61,11 @@ app.post('/bagel', (req, res) => {
     newBagel.save().then(() => res.send('Bagel salvo com sucesso!!'))
 });
 
+app.get('/bagel', async (req, res) => { 
+    const bagels = await Bagel.find({});
 
+    res.send(bagels);
+})
 
 
 
