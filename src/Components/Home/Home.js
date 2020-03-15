@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export class Home extends Component {
   render() {
     return (
-      <div>
+      <div style={{backgroundColor: '#fcd1ef'}}>
         <header style={headerStyle}>
           <Typography variant="h2"> Donut Station - Home</Typography>
           <Link style={linkStyle} to="/menu">
@@ -23,7 +23,9 @@ const headerStyle = {
   textAlign: "center",
   padding: "60px",
   backgroundColor: "pink",
-  color: "blue"
+  color: "blue",
+  border:'2px solid black',
+  borderRadius: '20px 10px'
 };
 
 const linkStyle = { 
