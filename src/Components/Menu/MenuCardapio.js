@@ -90,7 +90,7 @@ export class MenuCardapio extends Component {
               <Container
                 fixed
                 style={{
-                  overflow: 'hidden',
+                  // overflow: 'hidden',
                   backgroundColor: "white",
                   marginTop: "50px",
                   marginBottom: "50px",
@@ -98,7 +98,7 @@ export class MenuCardapio extends Component {
                   borderRadius: "5px 5px",
                   padding: "50px"
                 }}
-                maxWidth="lg"
+                maxWidth="md"
               >
                 <List style={{ display: "flex" }}>
                   <ListItem>
