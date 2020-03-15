@@ -4,25 +4,25 @@ import {
   List,
   ListItem,
   MenuItem,
-  Box,
-  Table,
-  TableRow,
-  TableCell,
+  // Box,
+  // Table,
+  // TableRow,
+  // TableCell,
   Typography,
-  Drawer,
+  // Drawer,
   Select,
   Container
 } from "@material-ui/core";
 import Store from "../../stores/Store";
 import Actions from "../../actions/Actions";
 import DonutItem from "./donuts/DonutItem";
-import { Link } from "react-router-dom";
-// import DrawerMenu from "./DrawerMenu";
+// import { Link } from "react-router-dom"
+import DrawerMenu from "./DrawerMenu";
 import { Layout } from "antd";
-import { Menu } from "antd";
+// import { Menu } from "antd";
 import logo from "./logo.png";
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Footer, Content } = Layout;
 
 // import Drawer from '@material-ui/core/Drawer';
 
@@ -59,6 +59,7 @@ export class MenuCardapio extends Component {
               <Typography>Home</Typography>
             </Link>
           </Header> */}
+          <DrawerMenu></DrawerMenu>
           <Layout>
             {/* <Sider style={{backgroundColor: 'red'}}>
               <Menu mode="inline">
@@ -67,10 +68,13 @@ export class MenuCardapio extends Component {
 
               </Sider> */}
             <Content style={{ display: "flex" }}>
-              <Container
+              {/* <Container
+                fixed
                 style={{
-                  flex: "1",
+                  flex: "1.5",
                   backgroundColor: "white",
+                  border: "3px solid #E01E4B",
+                  borderRadius: "5px 5px"
                   // marginRight: "100px"
                 }}
               >
@@ -81,10 +85,12 @@ export class MenuCardapio extends Component {
                   height="300px"
                 ></img>
                 <Divider></Divider>
-              </Container>
-                <div style={{flex: '2'}}></div>
+              </Container> */}
+              <div style={{ flex: "2" }}></div>
               <Container
+                fixed
                 style={{
+                  overflow: 'hidden',
                   backgroundColor: "white",
                   marginTop: "50px",
                   marginBottom: "50px",
@@ -130,9 +136,7 @@ export class MenuCardapio extends Component {
             </Content>
           </Layout>
 
-          <Footer style={{ backgroundColor: "black" }}>
-            <Typography> Footer</Typography>
-          </Footer>
+          
         </Layout>
       </div>
     );
@@ -141,11 +145,11 @@ export class MenuCardapio extends Component {
 
 export default MenuCardapio;
 
-const headerStyle = {
-  backgroundColor: "#424874",
-  padding: "1px",
-  textAlign: "center",
-  color: "#f4eeff",
-  border: "1px solid black",
-  borderRadius: "6px 6px"
-};
+// const headerStyle = {
+//   backgroundColor: "#424874",
+//   padding: "1px",
+//   textAlign: "center",
+//   color: "#f4eeff",
+//   border: "1px solid black",
+//   borderRadius: "6px 6px"
+// };

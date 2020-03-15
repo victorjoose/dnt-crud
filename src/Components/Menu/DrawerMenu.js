@@ -12,6 +12,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
+import logo from './logo.png';
 
 const drawerWidth = 200;
 
@@ -48,9 +49,15 @@ export default function DrawerMenu() {
         classes={{
           paper: classes.drawerPaper
         }}
-        anchor="top"
+        anchor="left"
       >
         <div className={classes.toolbar} />
+        <img
+                  style={{ maxWidth: "100%" }}
+                  alt="logo"
+                  src={logo}
+                  height='auto'
+                ></img>
         <Divider />
         <List>
           {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
