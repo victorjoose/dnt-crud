@@ -4,7 +4,7 @@ import {
   List,
   ListItem,
   MenuItem,
-  // Box,
+  Box,
   // Table,
   // TableRow,
   // TableCell,
@@ -100,6 +100,8 @@ export class MenuCardapio extends Component {
                 }}
                 maxWidth="md"
               >
+              <Box>
+
                 <List style={{ display: "flex" }}>
                   <ListItem>
                     <Select style={{ flex: 3 }} value="Donuts">
@@ -116,13 +118,13 @@ export class MenuCardapio extends Component {
                       style={{ flex: 3, marginLeft: "100px" }}
                       variant="h6"
                     >
-                      Preço
+                      Descrição
                     </Typography>
                     <Typography
                       style={{ flex: 3, marginLeft: "100px" }}
                       variant="h6"
                     >
-                      Descrição
+                      Preço
                     </Typography>
                   </ListItem>
                 </List>
@@ -131,8 +133,9 @@ export class MenuCardapio extends Component {
                   <DonutItem donut={donut}></DonutItem>,
                   <Divider style={{ backgroudColor: "black" }} />
                 ])}
+              </Box>
               </Container>
-              <div style={{ flex: "2" }}></div>
+              {/* <div style={{ flex: "2" }}></div> */}
             </Content>
           </Layout>
 
