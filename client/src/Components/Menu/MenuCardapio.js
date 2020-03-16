@@ -21,6 +21,7 @@ import DrawerMenu from "./DrawerMenu";
 import { Layout } from "antd";
 // import { Menu } from "antd";
 import logo from "./logo.png";
+import { Link } from "react-router-dom";
 
 const { Sider, Content } = Layout;
 
@@ -60,7 +61,7 @@ export class MenuCardapio extends Component {
             </Link>
           </Header> */}
           <Layout>
-            <Sider>
+            <Sider style={{ backgroudColor: "red" }}>
               <DrawerMenu></DrawerMenu>
             </Sider>
             {/* <Sider style={{backgroundColor: 'red'}}>
@@ -90,7 +91,6 @@ export class MenuCardapio extends Component {
               </Container> */}
               <div style={{ flex: "6" }}></div>
               <Container
-                
                 style={{
                   // overflow: 'hidden',
                   backgroundColor: "white",
@@ -102,14 +102,20 @@ export class MenuCardapio extends Component {
                 }}
                 maxWidth="md"
               >
+                <Link to="/">
+                  <Typography>Home</Typography>
+                </Link>
                 {/* <Box> */}
-                  <List style={{ display: "flex" }}>
-                    <ListItem>
-                      <Select style={{ flex: 0, textAlign: 'center' }} value="Donuts">
-                        <MenuItem value="Homer">Donuts</MenuItem>
-                        <MenuItem value="Branco">Bagels</MenuItem>
-                      </Select>
-                      {/* <Typography
+                <List style={{ display: "flex" }}>
+                  <ListItem>
+                    <Select
+                      style={{ flex: 0, textAlign: "center" }}
+                      value="Donuts"
+                    >
+                      <MenuItem value="Homer">Donuts</MenuItem>
+                      <MenuItem value="Branco">Bagels</MenuItem>
+                    </Select>
+                    {/* <Typography
                         style={{ flex: '3', textAlign: 'center'}}
                         variant="h5"
                       >
@@ -133,14 +139,13 @@ export class MenuCardapio extends Component {
                       >
                         Quantidade
                       </Typography> */}
-                      
-                    </ListItem>
-                  </List>
+                  </ListItem>
+                </List>
 
-                  {this.state.donuts.map(donut => [
-                    <DonutItem donut={donut}></DonutItem>,
-                    <Divider style={{ backgroudColor: "black" }} />
-                  ])}
+                {this.state.donuts.map(donut => [
+                  <DonutItem donut={donut}></DonutItem>,
+                  <Divider style={{ backgroudColor: "black" }} />
+                ])}
                 {/* </Box> */}
               </Container>
               <div style={{ flex: "4" }}></div>

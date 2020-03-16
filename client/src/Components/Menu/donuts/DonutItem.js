@@ -17,19 +17,14 @@ import AddPedido from "../AddPedido";
 // import Actions from "../../../actions/Actions";
 
 export class DonutItem extends Component {
-
-  onAddPedido = () => {
-    
-  }
-
+  onAddPedido = () => {};
 
   render() {
-
     return (
       <div>
         <Divider></Divider>
         <List style={{ display: "flex" }}>
-          <ListItem>
+          <ListItem style={{ padding: 0 }}>
             <Button>
               <img
                 style={{ flex: "2" }}

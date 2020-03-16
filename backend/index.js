@@ -73,4 +73,4 @@ app.get('/bagel', async (req, res) => {
 
 const port = 3001;
 
-app.listen(port, () => console.log('Server running ...........!!!'));
+app.listen(process.env.PORT || port, () => console.log('Server running ...........!!!'));

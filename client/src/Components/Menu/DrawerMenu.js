@@ -1,18 +1,16 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
-import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
-import logo from './logo.png';
+
+import logo from "./logo.png";
+import HomeIcon from "@material-ui/icons/Home";
+import Link from "@material-ui/core/Link";
+import { Typography, Button } from "@material-ui/core";
 
 const drawerWidth = 200;
 
@@ -41,6 +39,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function DrawerMenu() {
   const classes = useStyles();
+
   return (
     <div>
       <Drawer
@@ -53,22 +52,15 @@ export default function DrawerMenu() {
       >
         <div className={classes.toolbar} />
         <img
-                  style={{ maxWidth: "100%" }}
-                  alt="logo"
-                  src={logo}
-                  height='auto'
-                ></img>
+          style={{ maxWidth: "100%" }}
+          alt="logo"
+          src={logo}
+          height="auto"
+        ></img>
         <Divider />
-        <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
+
+        <Button></Button>
+
         <Divider />
       </Drawer>
     </div>
