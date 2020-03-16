@@ -13,7 +13,7 @@ class Actions {
     getDonutsFromDb() {
       ////modified
       axios
-        .get('dntstationjlle-server.herokuapp.com/donut/')
+        .get('https://dntstationjlle-server.herokuapp.com/donut/')
         .then(res => {
           dispatch(ActionTypes.GET_DONUTS_FROM_DB, res);
         })
