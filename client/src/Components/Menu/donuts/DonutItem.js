@@ -2,14 +2,17 @@ import React, { Component } from "react";
 import {
   List,
   ListItem,
+  Divider,
   // Box,
   // Table,
   // TableRow,
   // TableCell,
   Typography,
-  Button,
+  Button
   // Grid
 } from "@material-ui/core";
+import SelectQtd from "../SelectQtd";
+import AddPedido from '../AddPedido';
 // // import Store from '../../../stores/Store';
 // import Actions from "../../../actions/Actions";
 
@@ -17,27 +20,28 @@ export class DonutItem extends Component {
   render() {
     return (
       <div>
-        <List>
+        <Divider></Divider>
+        <List style={{ display: "flex" }}>
           <ListItem>
             <Button>
               <img
-                height="200px"
+                style={{ flex: "2" }}
+                height="150px"
                 alt="imgs"
                 src="https://media.istockphoto.com/photos/donut-with-sprinkles-isolated-picture-id538335769"
               ></img>
             </Button>
-            <Typography style={{ flex: "3" }}>
-              Sabor: {this.props.donut.sabor}
-            </Typography>
+            <Typography style={typoStyle}>{this.props.donut.sabor}</Typography>
 
-            <Typography style={{ flex: "3" }}>
-              Descrição: {this.props.donut.descricao}
-            </Typography>
+            {/* <Typography style={typoStyle}>
+              {this.props.donut.descricao}
+            </Typography> */}
 
-            <Typography style={{ flex: "3" }}>
-              Preço: {this.props.donut.preco}
-            </Typography>
+            <Typography style={typoStyle}> R$ {this.props.donut.preco}</Typography>
 
+            <SelectQtd></SelectQtd>
+
+            <AddPedido></AddPedido>
           </ListItem>
         </List>
         {/* </Grid> */}
@@ -47,3 +51,10 @@ export class DonutItem extends Component {
 }
 
 export default DonutItem;
+
+const typoStyle = {
+  flex: "1",
+  textAlign: "center",
+  fontSize: "20px",
+  // fontFamily: "Georgia, serif
+};

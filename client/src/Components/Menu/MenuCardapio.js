@@ -22,7 +22,7 @@ import { Layout } from "antd";
 // import { Menu } from "antd";
 import logo from "./logo.png";
 
-const { Footer, Content } = Layout;
+const { Sider, Content } = Layout;
 
 // import Drawer from '@material-ui/core/Drawer';
 
@@ -59,8 +59,10 @@ export class MenuCardapio extends Component {
               <Typography>Home</Typography>
             </Link>
           </Header> */}
-          <DrawerMenu></DrawerMenu>
           <Layout>
+            <Sider>
+              <DrawerMenu></DrawerMenu>
+            </Sider>
             {/* <Sider style={{backgroundColor: 'red'}}>
               <Menu mode="inline">
                 <Menu.Item key="5">Option 5</Menu.Item>
@@ -86,9 +88,9 @@ export class MenuCardapio extends Component {
                 ></img>
                 <Divider></Divider>
               </Container> */}
-              <div style={{ flex: "2" }}></div>
+              <div style={{ flex: "6" }}></div>
               <Container
-                fixed
+                
                 style={{
                   // overflow: 'hidden',
                   backgroundColor: "white",
@@ -100,46 +102,50 @@ export class MenuCardapio extends Component {
                 }}
                 maxWidth="md"
               >
-              <Box>
+                {/* <Box> */}
+                  <List style={{ display: "flex" }}>
+                    <ListItem>
+                      <Select style={{ flex: 0, textAlign: 'center' }} value="Donuts">
+                        <MenuItem value="Homer">Donuts</MenuItem>
+                        <MenuItem value="Branco">Bagels</MenuItem>
+                      </Select>
+                      {/* <Typography
+                        style={{ flex: '3', textAlign: 'center'}}
+                        variant="h5"
+                      >
+                        Sabor
+                      </Typography>
+                      <Typography
+                        style={{ flex: '3', textAlign: 'center'}}
+                        variant="h5"
+                      >
+                        Descrição
+                      </Typography>
+                      <Typography
+                        style={{ flex: '3', textAlign: 'center' }}
+                        variant="h5"
+                      >
+                        Preço
+                      </Typography>
+                      <Typography
+                        style={{ flex: '3', textAlign: 'center' }}
+                        variant="h5"
+                      >
+                        Quantidade
+                      </Typography> */}
+                      
+                    </ListItem>
+                  </List>
 
-                <List style={{ display: "flex" }}>
-                  <ListItem>
-                    <Select style={{ flex: 3 }} value="Donuts">
-                      <MenuItem value="Homer">Donuts</MenuItem>
-                      <MenuItem value="Branco">Bagels</MenuItem>
-                    </Select>
-                    <Typography
-                      style={{ flex: 3, marginLeft: "100px" }}
-                      variant="h6"
-                    >
-                      Sabor
-                    </Typography>
-                    <Typography
-                      style={{ flex: 3, marginLeft: "100px" }}
-                      variant="h6"
-                    >
-                      Descrição
-                    </Typography>
-                    <Typography
-                      style={{ flex: 3, marginLeft: "100px" }}
-                      variant="h6"
-                    >
-                      Preço
-                    </Typography>
-                  </ListItem>
-                </List>
-
-                {this.state.donuts.map(donut => [
-                  <DonutItem donut={donut}></DonutItem>,
-                  <Divider style={{ backgroudColor: "black" }} />
-                ])}
-              </Box>
+                  {this.state.donuts.map(donut => [
+                    <DonutItem donut={donut}></DonutItem>,
+                    <Divider style={{ backgroudColor: "black" }} />
+                  ])}
+                {/* </Box> */}
               </Container>
-              {/* <div style={{ flex: "2" }}></div> */}
+              <div style={{ flex: "4" }}></div>
             </Content>
           </Layout>
-
-          
         </Layout>
       </div>
     );
