@@ -3,6 +3,7 @@ import Store from '../../stores/Store';
 import Actions from '../../actions/Actions';
 import InputLabel from '@material-ui/core/InputLabel';
 import { MenuItem, TextField } from '@material-ui/core';
+import AddPedido from './AddPedido';
 
 export default function SelectQtd(props) {
   const [qtdValor, setQtdValor] = React.useState(0);
@@ -27,7 +28,8 @@ export default function SelectQtd(props) {
   };
 
   return (
-    <div style={{flex: '1'}}>
+    <div style={{flex: '0', marginLeft: '50px', marginRight: '50px'}}>
+      
       <InputLabel>Quantidade</InputLabel>
       <TextField        
 
@@ -36,7 +38,7 @@ export default function SelectQtd(props) {
         variant='standard'
         type='number'
         size='medium'
-        style={{width: '50%'}}
+        style={{width: '100%'}}
         
       >
       </TextField>

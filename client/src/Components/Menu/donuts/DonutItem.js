@@ -3,7 +3,7 @@ import {
   List,
   ListItem,
   Divider,
-  // Box,
+  Box,
   // Table,
   // TableRow,
   // TableCell,
@@ -12,12 +12,19 @@ import {
   // Grid
 } from "@material-ui/core";
 import SelectQtd from "../SelectQtd";
-import AddPedido from '../AddPedido';
+import AddPedido from "../AddPedido";
 // // import Store from '../../../stores/Store';
 // import Actions from "../../../actions/Actions";
 
 export class DonutItem extends Component {
+
+  onAddPedido = () => {
+    
+  }
+
+
   render() {
+
     return (
       <div>
         <Divider></Divider>
@@ -31,17 +38,22 @@ export class DonutItem extends Component {
                 src="https://media.istockphoto.com/photos/donut-with-sprinkles-isolated-picture-id538335769"
               ></img>
             </Button>
+
             <Typography style={typoStyle}>{this.props.donut.sabor}</Typography>
 
             {/* <Typography style={typoStyle}>
               {this.props.donut.descricao}
             </Typography> */}
+            <Divider orientation="vertical"></Divider>
 
-            <Typography style={typoStyle}> R$ {this.props.donut.preco}</Typography>
+            <Typography style={typoStyle}>
+              {" "}
+              R$ {this.props.donut.preco}
+            </Typography>
+            <Divider orientation="vertical"></Divider>
 
             <SelectQtd></SelectQtd>
-
-            <AddPedido></AddPedido>
+            <AddPedido onAddPedido={this.handleAddPedido}></AddPedido>
           </ListItem>
         </List>
         {/* </Grid> */}
@@ -55,6 +67,6 @@ export default DonutItem;
 const typoStyle = {
   flex: "1",
   textAlign: "center",
-  fontSize: "20px",
+  fontSize: "20px"
   // fontFamily: "Georgia, serif
 };

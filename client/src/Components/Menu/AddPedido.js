@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 export class AddPedido extends Component {
     render() {
         return (
-            <div style={{flex: 1}}>
+            <div >
                 <Button style={{float: 'right'}}>
                     <AddShoppingCartIcon></AddShoppingCartIcon>
                 </Button>
