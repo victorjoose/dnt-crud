@@ -100,7 +100,9 @@ export class MenuCardapio extends Component {
               </Container> */}
               <div style={{ flex: "4" }}></div>
               <Container
+              maxWidth='md'
                 style={{
+                  width: '100%',
                   height: "100%",
                   // overflow: 'hidden',
                   marginLeft: "200px",
@@ -109,9 +111,8 @@ export class MenuCardapio extends Component {
                   marginBottom: "50px",
                   border: "10px solid #f9c56b",
                   borderRadius: "5px 5px",
-                  padding: "50px"
+                  padding: "10px"
                 }}
-                maxWidth="md"
               >
                 <Link to="/">
                   <Typography>Home</Typography>
@@ -159,8 +160,8 @@ export class MenuCardapio extends Component {
                 ])}
                 {/* </Box> */}
               </Container>
-              <Sider style={{ backgroundColor: "#172E99" }}>
-                <Container
+              {/* <Sider style={{ backgroundColor: "#172E99" }}> */}
+                {/* <Container
                   style={{
                     height: "50vh",
                     backgroundColor: "white",
@@ -172,9 +173,8 @@ export class MenuCardapio extends Component {
                     width: "40vh"
                   }}
                 >
-                  <Typography></Typography>
-                </Container>
-              </Sider>
+                </Container> */}
+              {/* </Sider> */}
               <div style={{ flex: "4" }}></div>
             </Content>
           </Layout>
