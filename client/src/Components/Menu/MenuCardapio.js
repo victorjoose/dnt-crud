@@ -52,7 +52,16 @@ export class MenuCardapio extends Component {
 
   render() {
     return (
-      <div>
+      <div
+        style={{
+          backgroundColor: "#fcd1ef",
+          position: "absolute",
+          top: "0",
+          left: "0",
+          height: "100%",
+          width: "100%"
+        }}
+      >
         <Layout style={{ backgroundColor: "#172E99" }}>
           {/* <Header style={headerStyle}>
             <Typography variant="h2">Cardápio</Typography>
@@ -60,7 +69,7 @@ export class MenuCardapio extends Component {
               <Typography>Home</Typography>
             </Link>
           </Header> */}
-          <Layout>
+          <Layout style={{ backgroundColor: "#172E99" }}>
             <Sider style={{ backgroudColor: "red" }}>
               <DrawerMenu></DrawerMenu>
             </Sider>
@@ -89,10 +98,12 @@ export class MenuCardapio extends Component {
                 ></img>
                 <Divider></Divider>
               </Container> */}
-              <div style={{ flex: "6" }}></div>
+              <div style={{ flex: "4" }}></div>
               <Container
                 style={{
+                  height: "100%",
                   // overflow: 'hidden',
+                  marginLeft: "200px",
                   backgroundColor: "white",
                   marginTop: "50px",
                   marginBottom: "50px",
@@ -148,6 +159,22 @@ export class MenuCardapio extends Component {
                 ])}
                 {/* </Box> */}
               </Container>
+              <Sider style={{ backgroundColor: "#172E99" }}>
+                <Container
+                  style={{
+                    height: "50vh",
+                    backgroundColor: "white",
+                    marginLeft: "50px",
+                    marginTop: "50px",
+                    marginBottom: "50px",
+                    border: "10px solid #f9c56b",
+                    borderRadius: "5px 5px",
+                    width: "40vh"
+                  }}
+                >
+                  <Typography></Typography>
+                </Container>
+              </Sider>
               <div style={{ flex: "4" }}></div>
             </Content>
           </Layout>
