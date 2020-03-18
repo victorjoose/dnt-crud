@@ -52,35 +52,37 @@ export class MenuCardapio extends Component {
 
   render() {
     return (
-      <div
-        style={{
-          backgroundColor: "#fcd1ef",
-          position: "absolute",
-          top: "0",
-          left: "0",
-          height: "100%",
-          width: "100%"
-        }}
-      >
-        <Layout style={{ backgroundColor: "#172E99" }}>
-          {/* <Header style={headerStyle}>
+      // <div class='container-md'>
+        <div
+          // class="col-8 offset-sm-2"
+          style={{
+            backgroundColor: "#fcd1ef",
+            position: "absolute",
+            top: "0",
+            left: "0",
+            height: "100%",
+            width: "100%"
+          }}
+        >
+          <Layout style={{ backgroundColor: "#172E99" }}>
+            {/* <Header style={headerStyle}>
             <Typography variant="h2">Cardápio</Typography>
             <Link to="/">
               <Typography>Home</Typography>
             </Link>
           </Header> */}
-          <Layout style={{ backgroundColor: "#172E99" }}>
-            <Sider style={{ backgroudColor: "red" }}>
-              <DrawerMenu></DrawerMenu>
-            </Sider>
-            {/* <Sider style={{backgroundColor: 'red'}}>
+            <Layout style={{ backgroundColor: "#172E99" }}>
+              <Sider style={{ backgroudColor: "red" }}>
+                <DrawerMenu></DrawerMenu>
+              </Sider>
+              {/* <Sider style={{backgroundColor: 'red'}}>
               <Menu mode="inline">
                 <Menu.Item key="5">Option 5</Menu.Item>
               </Menu>
 
               </Sider> */}
-            <Content style={{ display: "flex" }}>
-              {/* <Container
+              <Content style={{ display: "flex" }}>
+                {/* <Container
                 fixed
                 style={{
                   flex: "1.5",
@@ -98,36 +100,36 @@ export class MenuCardapio extends Component {
                 ></img>
                 <Divider></Divider>
               </Container> */}
-              <div style={{ flex: "4" }}></div>
-              <Container
-              maxWidth='md'
-                style={{
-                  width: '100%',
-                  height: "100%",
-                  // overflow: 'hidden',
-                  marginLeft: "200px",
-                  backgroundColor: "white",
-                  marginTop: "50px",
-                  marginBottom: "50px",
-                  border: "10px solid #f9c56b",
-                  borderRadius: "5px 5px",
-                  padding: "10px"
-                }}
-              >
-                <Link to="/">
-                  <Typography>Home</Typography>
-                </Link>
-                {/* <Box> */}
-                <List style={{ display: "flex" }}>
-                  <ListItem>
-                    <Select
-                      style={{ flex: 0, textAlign: "center" }}
-                      value="Donuts"
-                    >
-                      <MenuItem value="Homer">Donuts</MenuItem>
-                      <MenuItem value="Branco">Bagels</MenuItem>
-                    </Select>
-                    {/* <Typography
+                {/* <div style={{ flex: "4" }}></div> */}
+                <Container
+                  maxWidth="md"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    // overflow: 'hidden',
+                    marginLeft: "200px",
+                    backgroundColor: "white",
+                    marginTop: "50px",
+                    marginBottom: "50px",
+                    border: "10px solid #f9c56b",
+                    borderRadius: "5px 5px",
+                    padding: "10px"
+                  }}
+                >
+                  <Link to="/">
+                    <Typography>Home</Typography>
+                  </Link>
+                  {/* <Box> */}
+                  <List style={{ display: "flex" }}>
+                    <ListItem>
+                      <Select
+                        style={{ flex: 0, textAlign: "center" }}
+                        value="Donuts"
+                      >
+                        <MenuItem value="Homer">Donuts</MenuItem>
+                        <MenuItem value="Branco">Bagels</MenuItem>
+                      </Select>
+                      {/* <Typography
                         style={{ flex: '3', textAlign: 'center'}}
                         variant="h5"
                       >
@@ -151,16 +153,16 @@ export class MenuCardapio extends Component {
                       >
                         Quantidade
                       </Typography> */}
-                  </ListItem>
-                </List>
+                    </ListItem>
+                  </List>
 
-                {this.state.donuts.map(donut => [
-                  <DonutItem donut={donut}></DonutItem>,
-                  <Divider style={{ backgroudColor: "black" }} />
-                ])}
-                {/* </Box> */}
-              </Container>
-              {/* <Sider style={{ backgroundColor: "#172E99" }}> */}
+                  {this.state.donuts.map(donut => [
+                    <DonutItem donut={donut}></DonutItem>,
+                    <Divider style={{ backgroudColor: "black" }} />
+                  ])}
+                  {/* </Box> */}
+                </Container>
+                {/* <Sider style={{ backgroundColor: "#172E99" }}> */}
                 {/* <Container
                   style={{
                     height: "50vh",
@@ -174,12 +176,13 @@ export class MenuCardapio extends Component {
                   }}
                 >
                 </Container> */}
-              {/* </Sider> */}
-              <div style={{ flex: "4" }}></div>
-            </Content>
+                {/* </Sider> */}
+                {/* <div style={{ flex: "4" }}></div> */}
+              </Content>
+            </Layout>
           </Layout>
-        </Layout>
-      </div>
+        </div>
+      // </div>
     );
   }
 }

@@ -41,7 +41,7 @@ export default function DrawerMenu() {
   const classes = useStyles();
 
   return (
-    <div>
+    <div class='col-4'>
       <Drawer
         className={classes.drawer}
         variant="permanent"
