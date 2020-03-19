@@ -21,7 +21,7 @@ export class DonutItem extends Component {
 
   render() {
     return (
-      <div>
+      <div class='row'>
         <Divider></Divider>
         <List style={{ display: "flex" }}>
           <ListItem style={{ padding: 0 }}>

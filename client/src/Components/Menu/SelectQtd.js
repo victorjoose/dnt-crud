@@ -28,7 +28,7 @@ export default function SelectQtd(props) {
   };
 
   return (
-    <div style={{flex: '0', marginLeft: '50px', marginRight: '50px'}}>
+    <div >
       
       <InputLabel>Quantidade</InputLabel>
       <TextField        
@@ -38,7 +38,7 @@ export default function SelectQtd(props) {
         variant='standard'
         type='number'
         size='medium'
-        style={{width: '100%'}}
+        // style={{width: '100%'}}
         
       >
       </TextField>
