@@ -4,10 +4,16 @@ import Button from '@material-ui/core/Button';
 
 
 export class AddPedido extends Component {
+
+    handleAddShop = () => {
+        this.props.onAddPedido();
+    }
+
+
     render() {
         return (
             <div >
-                <Button style={{float: 'right'}}>
+                <Button onClick={this.handleAddShop} style={{float: 'right'}}>
                     <AddShoppingCartIcon></AddShoppingCartIcon>
                 </Button>
             </div>

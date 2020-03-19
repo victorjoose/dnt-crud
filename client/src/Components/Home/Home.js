@@ -19,7 +19,7 @@ export class Home extends Component {
       <header style={headerStyle}>
         
       </header>
-        <Link style={linkStyle} to="/menu">
+        <Link style={linkStyle} to="/menuresp">
           <img
             style={{
               maxWidth: "100%",

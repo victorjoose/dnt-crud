@@ -16,8 +16,21 @@ import AddPedido from "../AddPedido";
 // // import Store from '../../../stores/Store';
 // import Actions from "../../../actions/Actions";
 
-export class DonutItem extends Component {
-  onAddPedido = () => {};
+export class DonutItemResp extends Component {
+  handleAddPedido = () => {
+    const data = {
+      preco: this.props.donut.preco,
+      sabor: this.props.donut.sabor,
+      qtd: this.state.qtd 
+    };
+
+    this.props.addToShop(data);
+
+  };
+
+  handleSelQtd = (value) => {
+    this.setState({ qtd: value});
+  }
 
   render() {
     return (
@@ -42,7 +55,7 @@ export class DonutItem extends Component {
         </div>
 
         <div class='col-md-2'>
-          <SelectQtd></SelectQtd>
+          <SelectQtd onSelQtd={this.handleSelQtd}></SelectQtd>
         </div>
 
         <div class='col-md-1'>
@@ -53,7 +66,7 @@ export class DonutItem extends Component {
   }
 }
 
-export default DonutItem;
+export default DonutItemResp;
 
 const typoStyle = {
   //   flex: "1",

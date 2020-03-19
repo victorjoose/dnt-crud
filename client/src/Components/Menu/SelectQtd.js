@@ -24,6 +24,7 @@ export default function SelectQtd(props) {
 
   const handleChange = event => {
     // props.onChangeQtd(event.target.value);
+    props.onSelQtd(event.target.value);
     setQtdValor(event.target.value);
   };
 

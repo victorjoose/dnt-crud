@@ -17,7 +17,21 @@ import AddPedido from "../AddPedido";
 // import Actions from "../../../actions/Actions";
 
 export class DonutItem extends Component {
-  onAddPedido = () => {};
+  handleAddPedido = () => {
+    const data = {
+      preco: this.props.preco,
+      sabor: this.props.sabor,
+      qtd: this.state.qtd 
+    };
+
+    this.props.addToShop(data);
+
+  };
+
+  handleSelQtd = (value) => {
+    this.setState({ qtd: value});
+  }
+
 
   render() {
     return (
@@ -47,7 +61,7 @@ export class DonutItem extends Component {
             </Typography>
             <Divider orientation="vertical"></Divider>
 
-            <SelectQtd></SelectQtd>
+            <SelectQtd onSelQtd={this.handleSelQtd()}></SelectQtd>
             <AddPedido onAddPedido={this.handleAddPedido}></AddPedido>
           </ListItem>
         </List>
