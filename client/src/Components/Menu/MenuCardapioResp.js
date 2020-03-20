@@ -26,7 +26,9 @@ import { Link } from "react-router-dom";
 import HomeIcon from "@material-ui/icons/Home";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import _ from "lodash";
-import { T } from "antd/lib/upload/utils";
+import SendIcon from "@material-ui/icons/Send";
+import ClearIcon from "@material-ui/icons/Clear";
+// import { T } from "antd/lib/upload/utils";
 
 // const { Sider, Content } = Layout;
 
@@ -39,7 +41,8 @@ export class MenuCardapioResp extends Component {
       sabores: [],
       precos: [],
       qtds: [],
-      subtots: []
+      subtots: [],
+      total: 0
     };
   }
 
@@ -61,17 +64,24 @@ export class MenuCardapioResp extends Component {
     this.setState({ sabores: _.concat(this.state.sabores, data.sabor) || [] });
     this.setState({ precos: _.concat(this.state.precos, data.preco) || [] });
     this.setState({ qtds: _.concat(this.state.qtds, data.qtd) || [] });
-    // this.setState({ subtots: this.calcSubTotal() });
-    this.calcSubTotal();
+    this.setState({
+      subtots: _.concat(this.state.subtots, this.calcSubTotal(data)) || []
+    });
+    this.setState({ total: this.state.total + this.calcSubTotal(data) });
   };
 
-  calcSubTotal = () => {
-    for (let i = 0; i < this.state.qtds.length; i++) {
-      let subtotAux = this.state.qtds[i] * this.state.precos[i];
-      this.setState({ subtots: _.concat(this.state.subtots, subtotAux)  || []});
-    }
+  calcSubTotal = (data) => {
+    return data.preco * data.qtd;
+  };
 
-    // return this.state.subtots;
+  zerarCarrinho = () => {
+    this.setState({ sabores: [] });
+    this.setState({ precos: [] });
+    this.setState({ qtds: [] });
+    this.setState({
+      subtots: []
+    });
+    this.setState({ total: 0 });
   };
 
   render() {
@@ -167,14 +177,23 @@ export class MenuCardapioResp extends Component {
                   <Typography variant="h4">Carrinho</Typography>
                 </div>
               </div>
+              <Divider></Divider>
 
-              <div class="row">
+              <div class="row no-gutters">
                 <div class="col">
                   <Typography variant="h5">
                     {" "}
-                    Sabores{" "}
+                    Item{" "}
                     {this.state.sabores.map((sabor) => [
-                      <div col="row">
+                      <div
+                        class="row no-gutters"
+                        style={{
+                          backgroundColor: "#f9d9e0",
+                          marginBottom: "2px"
+
+                          // textAlign: "center"
+                        }}
+                      >
                         <Typography variant="h6"> {sabor} </Typography>
                       </div>
                     ])}
@@ -183,9 +202,17 @@ export class MenuCardapioResp extends Component {
                 <div class="col">
                   <Typography variant="h5">
                     {" "}
-                    Preços{" "}
+                    Preço{" "}
                     {this.state.precos.map((preco) => [
-                      <div col="row">
+                      <div
+                        class="row no-gutters"
+                        style={{
+                          backgroundColor: "#f9d9e0",
+                          marginBottom: "2px"
+
+                          // textAlign: "center"
+                        }}
+                      >
                         <Typography variant="h6"> {preco} </Typography>
                       </div>
                     ])}
@@ -194,9 +221,17 @@ export class MenuCardapioResp extends Component {
                 <div class="col">
                   <Typography variant="h5">
                     {" "}
-                    Qtds{" "}
+                    Qtd{" "}
                     {this.state.qtds.map((qtd) => [
-                      <div col="row">
+                      <div
+                        class="row no-gutters"
+                        style={{
+                          backgroundColor: "#f9d9e0",
+                          marginBottom: "2px"
+
+                          // textAlign: "center"
+                        }}
+                      >
                         <Typography variant="h6"> {qtd} </Typography>
                       </div>
                     ])}
@@ -207,11 +242,66 @@ export class MenuCardapioResp extends Component {
                     {" "}
                     Subtotal
                     {this.state.subtots.map((subtot) => [
-                      <div col="row">
-                        <Typography variant="h6"> {subtot} </Typography>
+                      <div
+                        class="row no-gutters"
+                        style={{
+                          backgroundColor: "#f9d9e0",
+                          marginBottom: "2px"
+                          // textAlign: "center"
+                        }}
+                      >
+                        <Typography variant="h6">R$ {subtot} </Typography>
                       </div>
                     ])}
                   </Typography>
+                </div>
+              </div>
+              <Divider></Divider>
+              <div class="row no-gutters">
+                <div
+                  class="col"
+                  style={{
+                    textAlign: "center",
+                    marginTop: "40px",
+                    marginBottom: "10px"
+                  }}
+                >
+                  <Typography
+                    variant="h6"
+                    // style={{ border: "1px solid black" }}
+                  >
+                    Total: R$ {this.state.total}{" "}
+                  </Typography>
+                </div>
+              </div>
+
+              <div class="container-fluid">
+                <div class="row justify-content-center">
+                  <div class="col" style={{ textAlign: "center" }}>
+                    <Button
+                      onClick={this.zerarCarrinho}
+                      startIcon={<ClearIcon />}
+                      fullWidth
+                      variant="contained"
+                      style={{ backgroundColor: "#e85555" }}
+                    >
+                      <Typography style={{ fontWeight: 600 }}>
+                        Limpar
+                      </Typography>
+                    </Button>
+                  </div>
+                  <div class="col" style={{ textAlign: "center" }}>
+                    <Button
+                      startIcon={<SendIcon></SendIcon>}
+                      fullWidth
+                      variant="contained"
+                      style={{ backgroundColor: "#a2f2a3" }}
+                    >
+                      <Typography style={{ fontWeight: 600 }}>
+                        Continuar
+                      </Typography>
+                    </Button>
+                  </div>
                 </div>
               </div>
             </Container>
