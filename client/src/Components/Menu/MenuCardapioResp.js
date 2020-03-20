@@ -25,6 +25,8 @@ import logo from "./logo.png";
 import { Link } from "react-router-dom";
 import HomeIcon from "@material-ui/icons/Home";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import _ from "lodash";
+import { T } from "antd/lib/upload/utils";
 
 // const { Sider, Content } = Layout;
 
@@ -33,8 +35,11 @@ export class MenuCardapioResp extends Component {
     super(props);
     this.state = {
       donuts: [],
-      bagels: [],
-      carrinho: {}
+      // bagels: [],
+      sabores: [],
+      precos: [],
+      qtds: [],
+      subtots: []
     };
   }
 
@@ -53,7 +58,20 @@ export class MenuCardapioResp extends Component {
   };
 
   handleAddToShop = (data) => {
-    this.setState({ carrinho: data });
+    this.setState({ sabores: _.concat(this.state.sabores, data.sabor) || [] });
+    this.setState({ precos: _.concat(this.state.precos, data.preco) || [] });
+    this.setState({ qtds: _.concat(this.state.qtds, data.qtd) || [] });
+    // this.setState({ subtots: this.calcSubTotal() });
+    this.calcSubTotal();
+  };
+
+  calcSubTotal = () => {
+    for (let i = 0; i < this.state.qtds.length; i++) {
+      let subtotAux = this.state.qtds[i] * this.state.precos[i];
+      this.setState({ subtots: _.concat(this.state.subtots, subtotAux)  || []});
+    }
+
+    // return this.state.subtots;
   };
 
   render() {
@@ -61,7 +79,7 @@ export class MenuCardapioResp extends Component {
       <div class="container-fluid" style={{ padding: 0 }}>
         <div class="row no-gutters"></div>
         <div class="row no-gutters">
-          <div class="col-1" style={{ backgroundColor: "white" }}>
+          <div class="col-sm-1" style={{ backgroundColor: "white" }}>
             <img alt="logo" src={logo} height="150vh"></img>
 
             <div class="row justify-content-center">
@@ -126,7 +144,7 @@ export class MenuCardapioResp extends Component {
               maxWidth="md"
               style={{
                 // width: "100%",
-                height: "100%",
+                // height: "100%",
                 // // overflow: 'hidden',
                 // marginLeft: "200px",
                 backgroundColor: "white",
@@ -151,16 +169,51 @@ export class MenuCardapioResp extends Component {
               </div>
 
               <div class="row">
-                <Typography> Sabor: {this.state.carrinho.sabor || 'Sem sabores'} </Typography>
+                <div class="col">
+                  <Typography variant="h5">
+                    {" "}
+                    Sabores{" "}
+                    {this.state.sabores.map((sabor) => [
+                      <div col="row">
+                        <Typography variant="h6"> {sabor} </Typography>
+                      </div>
+                    ])}
+                  </Typography>
+                </div>
+                <div class="col">
+                  <Typography variant="h5">
+                    {" "}
+                    Preços{" "}
+                    {this.state.precos.map((preco) => [
+                      <div col="row">
+                        <Typography variant="h6"> {preco} </Typography>
+                      </div>
+                    ])}
+                  </Typography>
+                </div>
+                <div class="col">
+                  <Typography variant="h5">
+                    {" "}
+                    Qtds{" "}
+                    {this.state.qtds.map((qtd) => [
+                      <div col="row">
+                        <Typography variant="h6"> {qtd} </Typography>
+                      </div>
+                    ])}
+                  </Typography>
+                </div>
+                <div class="col">
+                  <Typography variant="h5">
+                    {" "}
+                    Subtotal
+                    {this.state.subtots.map((subtot) => [
+                      <div col="row">
+                        <Typography variant="h6"> {subtot} </Typography>
+                      </div>
+                    ])}
+                  </Typography>
+                </div>
               </div>
-              <div class='row'>
-                <Typography> Preço: {this.state.carrinho.preco || 'Sem preco'} </Typography>
-              </div>
-              <div class='row'>
-                <Typography> Qtd: {this.state.carrinho.qtd || 'Sem qtd'} </Typography>
-              </div>
-
-
             </Container>
           </div>
         </div>

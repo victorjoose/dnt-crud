@@ -61,7 +61,7 @@ export class DonutItem extends Component {
             </Typography>
             <Divider orientation="vertical"></Divider>
 
-            <SelectQtd onSelQtd={this.handleSelQtd()}></SelectQtd>
+            <SelectQtd onSelQtd={this.handleSelQtd}></SelectQtd>
             <AddPedido onAddPedido={this.handleAddPedido}></AddPedido>
           </ListItem>
         </List>
