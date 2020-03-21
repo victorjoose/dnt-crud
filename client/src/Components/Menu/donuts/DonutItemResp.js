@@ -17,28 +17,37 @@ import AddPedido from "../AddPedido";
 // import Actions from "../../../actions/Actions";
 
 export class DonutItemResp extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showAdd: true
+    };
+  }
+
   handleAddPedido = () => {
     const data = {
       preco: this.props.donut.preco,
       sabor: this.props.donut.sabor,
-      qtd: this.state.qtd 
+      qtd: this.state.qtd
     };
 
     this.props.addToShop(data);
-
   };
 
   handleSelQtd = (value) => {
-    this.setState({ qtd: value});
-  }
+    this.setState({ qtd: value });
+    if (value !== 0) this.setState({ showAdd: false });
+  };
 
   render() {
+    // this.setState({ value: false });
+
     return (
       <div class="row align-items-center">
         <div class="col-md-3">
           <Button>
             <img
-            //   style={{ flex: "2" }}
+              //   style={{ flex: "2" }}
               height="120vh"
               alt="imgs"
               src="https://media.istockphoto.com/photos/donut-with-sprinkles-isolated-picture-id538335769"
@@ -54,12 +63,15 @@ export class DonutItemResp extends Component {
           <Typography style={typoStyle}>R$ {this.props.donut.preco}</Typography>
         </div>
 
-        <div class='col-md-2'>
+        <div class="col-md-2">
           <SelectQtd onSelQtd={this.handleSelQtd}></SelectQtd>
         </div>
 
-        <div class='col-md-1'>
-            <AddPedido onAddPedido={this.handleAddPedido}></AddPedido>
+        <div class="col-md-1">
+          <AddPedido
+            showAdd={this.state.showAdd}
+            onAddPedido={this.handleAddPedido}
+          ></AddPedido>
         </div>
       </div>
     );

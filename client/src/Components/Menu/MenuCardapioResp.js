@@ -28,6 +28,7 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import _ from "lodash";
 import SendIcon from "@material-ui/icons/Send";
 import ClearIcon from "@material-ui/icons/Clear";
+import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 // import { T } from "antd/lib/upload/utils";
 
 // const { Sider, Content } = Layout;
@@ -151,16 +152,16 @@ export class MenuCardapioResp extends Component {
 
           <div class="col-lg-3" style={{ backgroundColor: "#172E99" }}>
             <Container
-              maxWidth="md"
+              // width: '100%'
               style={{
-                // width: "100%",
+                width: "100%",
                 // height: "100%",
                 // // overflow: 'hidden',
                 // marginLeft: "200px",
                 backgroundColor: "white",
                 marginTop: "20px",
                 // marginBottom: "50px",
-                border: "4px solid #f9c56b"
+                border: "2px solid #f9c56b"
                 // borderRadius: "5px 5px",
                 // padding: "100px"
               }}
@@ -213,14 +214,14 @@ export class MenuCardapioResp extends Component {
                           // textAlign: "center"
                         }}
                       >
-                        <Typography variant="h6"> {preco} </Typography>
+                        <Typography variant="h6"> R$ {preco} </Typography>
                       </div>
                     ])}
                   </Typography>
                 </div>
-                <div class="col">
+                <div class="col-2">
                   <Typography variant="h5">
-                    {" "}
+                    {""}
                     Qtd{" "}
                     {this.state.qtds.map((qtd) => [
                       <div
